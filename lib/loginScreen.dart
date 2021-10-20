@@ -7,7 +7,21 @@ class loginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.pink[50]),
+      appBar: AppBar(
+          backgroundColor: Colors.pink[50],
+          title: Row(
+            children: <Widget>[
+              TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    primary: Colors.pink[300],
+                  ),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(fontSize: 20),
+                  ))
+            ],
+          )),
       backgroundColor: Colors.pink[50],
       body: Padding(
         padding: const EdgeInsets.all(30),
