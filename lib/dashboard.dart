@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new dashBoard(),
-      theme: new ThemeData(primarySwatch: Colors.orange),
+      theme: new ThemeData(primarySwatch: Colors.pink),
     );
   }
 }
@@ -28,7 +28,7 @@ class dashBoardState extends State<dashBoard> {
       appBar: AppBar(
         title: Text('Rabbit'),
       ),
-      backgroundColor: Colors.orange[100],
+      backgroundColor: Colors.pink[50],
       body: Padding(
         padding: EdgeInsets.all(25),
         child: Column(children: [
@@ -36,7 +36,7 @@ class dashBoardState extends State<dashBoard> {
             height: 190,
             width: 700,
             decoration: BoxDecoration(
-                color: Colors.orange,
+                color: Colors.orange[200],
                 borderRadius: BorderRadius.all(Radius.circular(10))),
           ),
           Padding(padding: EdgeInsets.all(5)),
@@ -44,17 +44,18 @@ class dashBoardState extends State<dashBoard> {
             height: 190,
             width: 700,
             decoration: BoxDecoration(
-                color: Colors.orange,
+                color: Colors.orange[200],
                 borderRadius: BorderRadius.all(Radius.circular(10))),
           ),
-          Padding(padding: const EdgeInsets.only(left: 275.0, top: 150),
-          child: FloatingActionButton(
-            onPressed: () {  },
-            child: const Icon(Icons.add),
-          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 275.0, top: 150),
+            child: FloatingActionButton(
+              onPressed: () {},
+              child: const Icon(Icons.add),
+            ),
           ),
         ]),
-        ),
+      ),
     );
   }
 }
