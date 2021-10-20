@@ -25,7 +25,6 @@ class ProfileState extends State<Profile> {
     return new Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
-        leading: Icon(Icons.account_circle),
       ),
       backgroundColor: Colors.orange[100],
       body: Padding(
@@ -35,35 +34,17 @@ class ProfileState extends State<Profile> {
             height: 120,
             width: 600,
             decoration: BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                'Juan Dela Cruz' + '\n@Juandc'+
-                '\n\nFollowers: 1500    Following: 450',
-                style: TextStyle(fontSize: 21, color: Colors.black),
-              ),
-            ),
-          ),
-          Padding(padding: EdgeInsets.all(5)),
-          Container(
-            height: 50,
-            width: 700,
-            decoration: BoxDecoration(
                 color: Colors.orange[100],
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            child: Padding(
-              padding: EdgeInsets.all(10),
-              child: Text(
-                'Linked Accounts:',
-                style: TextStyle(fontSize: 20, color: Colors.black),
-              ),
-            ),
+                borderRadius: BorderRadius.all(Radius.circular(10))
+                ),
+                child: Icon(
+                  Icons.account_circle_rounded,
+                  size: 80.0,
+                  ),
           ),
           Padding(padding: EdgeInsets.all(5)),
           Container(
-            height: 100,
+            height: 110,
             width: 700,
             decoration: BoxDecoration(
                 color: Colors.orange,
@@ -71,8 +52,8 @@ class ProfileState extends State<Profile> {
             child: Padding(
               padding: EdgeInsets.all(10),
               child: Text(
-                'Facebook: Juan Dela Cruz'+
-                '\n\nInstagram: juandc',
+                'Juan Dela Cruz' + '\n@JuanDC' +
+                '\n\nFollowers: 1500       Following: 450',
                 style: TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
