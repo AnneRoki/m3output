@@ -26,7 +26,7 @@ class ProfileState extends State<Profile> {
       appBar: AppBar(
         title: Text('Profile'),
       ),
-      backgroundColor: Colors.orange[100],
+      backgroundColor: Colors.pink[50],
       body: Padding(
         padding: EdgeInsets.all(25),
         child: Column(children: [
