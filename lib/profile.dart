@@ -31,7 +31,7 @@ class ProfileState extends State<Profile> {
         padding: EdgeInsets.all(25),
         child: Column(children: [
           Container(
-            height: 120,
+            height: 80,
             width: 600,
             decoration: BoxDecoration(
                 color: Colors.orange[100],
