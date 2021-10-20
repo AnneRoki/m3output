@@ -7,7 +7,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.orange),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(primarySwatch: Colors.pink),
       home: const Splash(),
     );
   }

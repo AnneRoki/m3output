@@ -19,7 +19,7 @@ class _loginscreenState extends State<loginscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.pink[50],
+          backgroundColor: Colors.pink,
           title: Row(
             children: <Widget>[
               TextButton(
@@ -103,7 +103,7 @@ class _loginscreenState extends State<loginscreen> {
                     onPressed: () {
                       navigatetopushdash();
                     },
-                    color: Colors.orange,
+                    color: Colors.purple[300],
                     child: Text(
                       'LOGIN',
                       style: TextStyle(

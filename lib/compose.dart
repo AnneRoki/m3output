@@ -11,6 +11,7 @@ class compose extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: _title,
+      debugShowCheckedModeBanner: false,
       home: MyStatelessWidget(),
     );
   }
@@ -24,31 +25,43 @@ class MyStatelessWidget extends StatelessWidget {
     final ButtonStyle style =
         TextButton.styleFrom(primary: Theme.of(context).colorScheme.onPrimary);
     return Scaffold(
-        appBar: AppBar(actions: <Widget>[
-      TextButton(
-        style: style,
-        onPressed: () {},
-        child: const Text('Cancel'),
-      ),
-      MaterialButton(
-        onPressed: () {},
-        color: Colors.orange,
-        child: Text(
-          'Tweet',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.black,
+      appBar: AppBar(backgroundColor: Colors.pinkAccent, actions: <Widget>[
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              TextButton(
+                style: style,
+                onPressed: () {},
+                child: const Text('Cancel'),
+              ),
+              Padding(padding: EdgeInsets.symmetric(horizontal: 120)),
+              MaterialButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                onPressed: () {},
+                color: Colors.purple[300],
+                child: Text(
+                  'Post',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-      ),
-      SizedBox(
-        height: 10,
-      ),
-      Divider(
-        color: Colors.black,
-        height: 10,
-      ),
-    ]));
+        SizedBox(
+          height: 10,
+        ),
+        Divider(
+          color: Colors.black,
+          height: 10,
+        ),
+      ]),
+    );
   }
 }
+
 //Tyrael
