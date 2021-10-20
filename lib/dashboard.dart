@@ -22,40 +22,32 @@ class dashBoard extends StatefulWidget {
 class dashBoardState extends State<dashBoard> {
   get floatingActionButton => null;
 
+  final List<String> _posts = <String>['1st', '2nd', '3rd'];
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: AppBar(
-        title: Text('Rabbit'),
-      ),
-      backgroundColor: Colors.pink[50],
-      body: Padding(
-        padding: EdgeInsets.all(25),
-        child: Column(children: [
-          Container(
-            height: 190,
-            width: 700,
-            decoration: BoxDecoration(
-                color: Colors.orange[200],
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-          ),
-          Padding(padding: EdgeInsets.all(5)),
-          Container(
-            height: 190,
-            width: 700,
-            decoration: BoxDecoration(
-                color: Colors.orange[200],
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 275.0, top: 150),
-            child: FloatingActionButton(
-              onPressed: () {},
-              child: const Icon(Icons.add),
-            ),
-          ),
-        ]),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Rabbit'),
+        ),
+        backgroundColor: Colors.pink[50],
+        body: Column(
+          children: [
+            Expanded(
+                child: ListView.builder(
+                    itemCount: _posts.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                          height: 200,
+                          margin: EdgeInsets.all(5),
+                          color: Colors.orange[200],
+                          child: Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Text('${_posts[index]}',
+                                style: TextStyle(fontSize: 15)),
+                          ));
+                    }))
+          ],
+        ));
   }
 }
