@@ -28,9 +28,9 @@ class _SplashState extends State<Splash> {
       backgroundColor: Colors.pink[50],
       body: Center(
           child: Image.asset(
-        'pics/Peko.png',
-        height: 200,
-        width: 200,
+        'pics/Pekoha.png',
+        height: 400,
+        width: 400,
         color: Colors.pink[50],
         colorBlendMode: BlendMode.darken,
         fit: BoxFit.fitWidth,
