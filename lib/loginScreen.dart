@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:m3output/dashboard.dart';
 import 'package:m3output/splash.dart';
 
-class loginScreen extends StatelessWidget {
-  const loginScreen({Key? key}) : super(key: key);
+class loginscreen extends StatefulWidget {
+  const loginscreen({Key? key}) : super(key: key);
+
+  @override
+  _loginscreenState createState() => _loginscreenState();
+}
+
+class _loginscreenState extends State<loginscreen> {
+  navigatetopushdash() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => dashBoard()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +86,9 @@ class loginScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                   ),
                   child: MaterialButton(
-                    onPressed: () => print("Successul Login."),
+                    onPressed: () {
+                      navigatetopushdash();
+                    },
                     color: Colors.orange,
                     child: Text(
                       'LOGIN',
@@ -119,4 +132,5 @@ class loginScreen extends StatelessWidget {
     );
   }
 }
+
 // Tyrael
