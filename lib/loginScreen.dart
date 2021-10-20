@@ -16,7 +16,7 @@ class loginScreen extends StatelessWidget {
             child: Column(
               children: [
                 Image.asset(
-                  'wew/Peko.png',
+                  'pics/Peko.png',
                   height: 200,
                   width: 200,
                   color: Colors.pink[50],
