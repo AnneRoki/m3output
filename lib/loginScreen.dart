@@ -14,9 +14,9 @@ class _loginscreenState extends State<loginscreen> {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => dashBoard()));
   }
+
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +25,16 @@ class _loginscreenState extends State<loginscreen> {
           backgroundColor: Colors.pink,
           title: Row(
             children: <Widget>[
-              TextButton(
+              MaterialButton(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   onPressed: () {},
-                  style: TextButton.styleFrom(
-                    primary: Colors.pink[300],
-                  ),
-                  child: Text(
-                    'Cancel',
-                    style: TextStyle(fontSize: 20),
-                  ))
+                  color: Colors.purple[300],
+                  child: Text('Cancel',
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      )))
             ],
           )),
       backgroundColor: Colors.pink[50],
@@ -56,7 +57,7 @@ class _loginscreenState extends State<loginscreen> {
                 ),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
-                  controller : nameController,
+                  controller: nameController,
                   decoration: InputDecoration(
                     labelText: 'Email Address',
                     border: OutlineInputBorder(),
@@ -74,7 +75,6 @@ class _loginscreenState extends State<loginscreen> {
                     labelText: 'Password',
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.remove_red_eye),
                   ),
                 ),
                 Row(
@@ -106,15 +106,15 @@ class _loginscreenState extends State<loginscreen> {
                   ),
                   child: MaterialButton(
                     onPressed: () {
-                      if (nameController.text == 'admin'&&
-                      passwordController.text == 'admin'){
+                      if (nameController.text == 'admin' &&
+                          passwordController.text == 'admin') {
                         navigatetopushdash();
-                      }else{
+                      } else {
                         final snackBar = SnackBar(
-                            content: const Text('Incorrect'),
-                          );
-                        }
-                      },
+                          content: const Text('Incorrect'),
+                        );
+                      }
+                    },
                     color: Colors.purple[300],
                     child: Text(
                       'LOGIN',
