@@ -69,6 +69,6 @@ class dashBoardState extends State<dashBoard> {
 
   navigatetocompose() {
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => compose()));
+        context, MaterialPageRoute(builder: (context) => Compose()));
   }
 }

@@ -1,25 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const compose());
-
-class compose extends StatelessWidget {
-  const compose({Key? key}) : super(key: key);
-
-  static const String _title = 'Compose';
+class Compose extends StatefulWidget {
+  const Compose({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      debugShowCheckedModeBanner: false,
-      home: MyStatelessWidget(),
-    );
-  }
+  _ComposeState createState() => _ComposeState();
 }
 
-class MyStatelessWidget extends StatelessWidget {
-  const MyStatelessWidget({Key? key}) : super(key: key);
-
+class _ComposeState extends State<Compose> {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
@@ -63,5 +51,7 @@ class MyStatelessWidget extends StatelessWidget {
     );
   }
 }
+
+
 
 //Tyrael
