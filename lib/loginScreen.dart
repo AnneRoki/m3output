@@ -14,6 +14,9 @@ class _loginscreenState extends State<loginscreen> {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => dashBoard()));
   }
+  TextEditingController nameController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +56,7 @@ class _loginscreenState extends State<loginscreen> {
                 ),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
+                  controller : nameController,
                   decoration: InputDecoration(
                     labelText: 'Email Address',
                     border: OutlineInputBorder(),
@@ -65,6 +69,7 @@ class _loginscreenState extends State<loginscreen> {
                 TextFormField(
                   keyboardType: TextInputType.visiblePassword,
                   obscureText: true,
+                  controller: passwordController,
                   decoration: const InputDecoration(
                     labelText: 'Password',
                     border: OutlineInputBorder(),
@@ -101,8 +106,15 @@ class _loginscreenState extends State<loginscreen> {
                   ),
                   child: MaterialButton(
                     onPressed: () {
-                      navigatetopushdash();
-                    },
+                      if (nameController.text == 'admin'&&
+                      passwordController.text == 'admin'){
+                        navigatetopushdash();
+                      }else{
+                        final snackBar = SnackBar(
+                            content: const Text('Incorrect'),
+                          );
+                        }
+                      },
                     color: Colors.purple[300],
                     child: Text(
                       'LOGIN',
