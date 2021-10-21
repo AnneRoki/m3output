@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'var.dart';
 import 'compose.dart';
 
 void main() => runApp(new MyApp());
@@ -23,12 +23,24 @@ class dashBoard extends StatefulWidget {
 
 class dashBoardState extends State<dashBoard> {
   get floatingActionButton => null;
-
-  final List<String> _posts = <String>['testing'];
+  late GlobalKey<RefreshIndicatorState> refreshKey;
+  final List<String> lposts = <String>['testing'];
   TextEditingController newpost = TextEditingController();
+  Future<Null> refreshpage() async {
+    await Future.delayed(Duration(seconds: 2));
+    addItemToList();
+    return null;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    refreshKey = GlobalKey<RefreshIndicatorState>();
+  }
+
   void addItemToList() {
     setState(() {
-      _posts.insert(0, newpost.text);
+      lposts.insert(0, temp);
     });
   }
 
@@ -42,19 +54,25 @@ class dashBoardState extends State<dashBoard> {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
-                itemCount: _posts.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      height: 200,
-                      margin: EdgeInsets.all(15),
-                      color: Colors.purple[300],
-                      child: Padding(
-                        padding: EdgeInsets.all(20),
-                        child: Text('${_posts[index]}',
-                            style: TextStyle(fontSize: 15)),
-                      ));
-                }),
+            child: RefreshIndicator(
+              key: refreshKey,
+              onRefresh: () async {
+                await refreshpage();
+              },
+              child: ListView.builder(
+                  itemCount: lposts.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Container(
+                        height: 200,
+                        margin: EdgeInsets.all(15),
+                        color: Colors.purple[300],
+                        child: Padding(
+                          padding: EdgeInsets.all(20),
+                          child: Text('${lposts[index]}',
+                              style: TextStyle(fontSize: 15)),
+                        ));
+                  }),
+            ),
           ),
         ],
       ),

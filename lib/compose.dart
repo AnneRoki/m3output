@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'profile.dart';
 import 'dashboard.dart';
+import 'var.dart';
 
 class Compose extends StatefulWidget {
   const Compose({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class _ComposeState extends State<Compose> {
         context, MaterialPageRoute(builder: (context) => dashBoard()));
   }
 
+  final tvalue = dashBoardState();
   @override
   Widget build(BuildContext context) {
     final ButtonStyle style =
@@ -52,7 +54,17 @@ class _ComposeState extends State<Compose> {
                 MaterialButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {},
+                  onPressed: () {
+                    if (tvalue.newpost.text != "") {
+                      temp = tvalue.newpost.text;
+                      navigatetopushdash();
+                    } else {
+                      final snackBar = SnackBar(
+                        content: const Text('Post is empty'),
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    }
+                  },
                   color: Colors.purple[300],
                   child: Text(
                     'Post',
@@ -83,6 +95,7 @@ class _ComposeState extends State<Compose> {
                 maxLength: 240,
                 minLines: 2,
                 maxLines: 5,
+                controller: tvalue.newpost,
                 keyboardType: TextInputType.multiline,
                 decoration: InputDecoration(
                     hintText: "Enter your message here",
