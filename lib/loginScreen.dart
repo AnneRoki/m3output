@@ -22,21 +22,11 @@ class _loginscreenState extends State<loginscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.pink,
-          title: Row(
-            children: <Widget>[
-              MaterialButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  onPressed: () {},
-                  color: Colors.purple[300],
-                  child: Text('Cancel',
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                      )))
-            ],
-          )),
+        backgroundColor: Colors.pink,
+        title: Text(
+          'Pekobit',
+        ),
+      ),
       backgroundColor: Colors.pink[50],
       body: Padding(
         padding: const EdgeInsets.all(30),
@@ -59,7 +49,7 @@ class _loginscreenState extends State<loginscreen> {
                   keyboardType: TextInputType.emailAddress,
                   controller: nameController,
                   decoration: InputDecoration(
-                    labelText: 'Email Address',
+                    labelText: 'Username',
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.email),
                   ),
@@ -111,8 +101,10 @@ class _loginscreenState extends State<loginscreen> {
                         navigatetopushdash();
                       } else {
                         final snackBar = SnackBar(
-                          content: const Text('Incorrect'),
+                          content: const Text(
+                              'Invalid username/password. Try Again!'),
                         );
+                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
                     },
                     color: Colors.purple[300],
@@ -127,28 +119,6 @@ class _loginscreenState extends State<loginscreen> {
                 ),
                 SizedBox(
                   height: 30,
-                ),
-                Divider(
-                  color: Colors.black,
-                  height: 30,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '''Don't have an account? ''',
-                      style: TextStyle(
-                        color: Colors.black.withOpacity(0.5),
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        print('Sign Up');
-                      },
-                      child: Text('Register Now'),
-                    )
-                  ],
                 ),
               ],
             ),

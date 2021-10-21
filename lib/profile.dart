@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dashboard.dart';
 
-
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -29,14 +28,13 @@ class ProfileState extends State<Profile> {
         title: Text('Profile'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.home),
-            onPressed: (){
-              navigatetopushdash();
-                }
-            ),
+              icon: Icon(Icons.home),
+              onPressed: () {
+                navigatetopushdash();
+              }),
         ],
       ),
-      backgroundColor: Colors.pink[300],
+      backgroundColor: Colors.pink[50],
       body: Padding(
         padding: EdgeInsets.all(25),
         child: Column(children: [
@@ -44,13 +42,12 @@ class ProfileState extends State<Profile> {
             height: 80,
             width: 600,
             decoration: BoxDecoration(
-                color: Colors.orange[100],
-                borderRadius: BorderRadius.all(Radius.circular(10))
-                ),
-                child: Icon(
-                  Icons.account_circle_rounded,
-                  size: 80.0,
-                  ),
+                color: Colors.pink[100],
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            child: Icon(
+              Icons.account_circle_rounded,
+              size: 80.0,
+            ),
           ),
           Padding(padding: EdgeInsets.all(5)),
           Container(
@@ -62,8 +59,9 @@ class ProfileState extends State<Profile> {
             child: Padding(
               padding: EdgeInsets.all(10),
               child: Text(
-                'Juan Dela Cruz' + '\n@JuanDC' +
-                '\n\nFollowers: 1500       Following: 450',
+                'Juan Dela Cruz' +
+                    '\n@JuanDC' +
+                    '\n\nFollowers: 1500       Following: 450',
                 style: TextStyle(fontSize: 20, color: Colors.black),
               ),
             ),
@@ -72,9 +70,9 @@ class ProfileState extends State<Profile> {
       ),
     );
   }
-   navigatetopushdash() {
-                Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => dashBoard())
-                  );
-   }
+
+  navigatetopushdash() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => dashBoard()));
+  }
 }
