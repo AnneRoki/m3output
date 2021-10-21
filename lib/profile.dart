@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
+
 
 void main() => runApp(new MyApp());
 
@@ -7,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Profile(),
-      theme: new ThemeData(primarySwatch: Colors.orange),
+      theme: new ThemeData(primarySwatch: Colors.pink),
     );
   }
 }
@@ -25,8 +27,16 @@ class ProfileState extends State<Profile> {
     return new Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.home),
+            onPressed: (){
+              navigatetopushdash();
+                }
+            ),
+        ],
       ),
-      backgroundColor: Colors.pink[50],
+      backgroundColor: Colors.pink[300],
       body: Padding(
         padding: EdgeInsets.all(25),
         child: Column(children: [
@@ -62,4 +72,9 @@ class ProfileState extends State<Profile> {
       ),
     );
   }
+   navigatetopushdash() {
+                Navigator.pushReplacement(
+                  context, MaterialPageRoute(builder: (context) => dashBoard())
+                  );
+   }
 }
