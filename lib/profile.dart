@@ -42,7 +42,7 @@ class ProfileState extends State<Profile> {
             height: 80,
             width: 600,
             decoration: BoxDecoration(
-                color: Colors.pink[100],
+                color: Colors.pink[50],
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Icon(
               Icons.account_circle_rounded,
@@ -54,7 +54,7 @@ class ProfileState extends State<Profile> {
             height: 110,
             width: 700,
             decoration: BoxDecoration(
-                color: Colors.orange,
+                color: Colors.purple[300],
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             child: Padding(
               padding: EdgeInsets.all(10),
