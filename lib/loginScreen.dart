@@ -22,7 +22,7 @@ class _loginscreenState extends State<loginscreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.purple[100],
         title: Text(
           'Pekobit',
         ),
