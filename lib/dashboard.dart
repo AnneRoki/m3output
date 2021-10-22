@@ -50,12 +50,22 @@ class dashBoardState extends State<dashBoard> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text('Rabbit'),
+        backgroundColor: Colors.purple[100],
+        title: Text('Pekobit'),
         actions: <Widget>[
+          Image.asset(
+            'pics/Peko.png',
+            fit: BoxFit.contain,
+            color: Colors.purple[100],
+            colorBlendMode: BlendMode.darken,
+            height: 50,
+            width: 50,
+          ),
+          Padding(padding: EdgeInsets.only(right: 135.0)),
           IconButton(
               icon: Icon(Icons.account_circle_rounded),
               onPressed: () {
-                navigatetoprofile();      
+                navigatetoprofile();
               }),
         ],
       ),
@@ -98,9 +108,9 @@ class dashBoardState extends State<dashBoard> {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Compose()));
   }
+
   navigatetoprofile() {
     Navigator.pushReplacement(
-      context, MaterialPageRoute(builder: (conext) => Profile())
-    );
+        context, MaterialPageRoute(builder: (conext) => Profile()));
   }
 }

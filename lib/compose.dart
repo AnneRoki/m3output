@@ -41,16 +41,16 @@ class _ComposeState extends State<Compose> {
                         color: Colors.black,
                       ),
                     )),
-                Padding(padding: EdgeInsets.only(right: 87.0)),
+                Padding(padding: EdgeInsets.only(right: 88.0)),
                 Image.asset(
                   'pics/Konpeko.png',
                   fit: BoxFit.contain,
                   color: Colors.purple[100],
                   colorBlendMode: BlendMode.darken,
-                  height: 50,
-                  width: 50,
+                  height: 65,
+                  width: 55,
                 ),
-                Padding(padding: EdgeInsets.only(right: 82.0)),
+                Padding(padding: EdgeInsets.only(right: 74.0)),
                 MaterialButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
@@ -58,9 +58,14 @@ class _ComposeState extends State<Compose> {
                     if (tvalue.newpost.text != "") {
                       temp = tvalue.newpost.text;
                       navigatetopushdash();
+                      final snackBar = SnackBar(
+                          content: const Text(
+                        'Your Peko has been posted',
+                      ));
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     } else {
                       final snackBar = SnackBar(
-                        content: const Text('Post is empty'),
+                        content: const Text('No text added to post'),
                       );
                       ScaffoldMessenger.of(context).showSnackBar(snackBar);
                     }

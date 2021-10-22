@@ -25,6 +25,7 @@ class ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple[100],
         title: Text('Profile'),
         actions: <Widget>[
           IconButton(
