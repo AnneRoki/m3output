@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:m3output/profile.dart';
 import 'var.dart';
 import 'compose.dart';
+import 'profile.dart';
 
 void main() => runApp(new MyApp());
 
@@ -49,6 +51,13 @@ class dashBoardState extends State<dashBoard> {
     return new Scaffold(
       appBar: AppBar(
         title: Text('Rabbit'),
+        actions: <Widget>[
+          IconButton(
+              icon: Icon(Icons.account_circle_rounded),
+              onPressed: () {
+                navigatetoprofile();      
+              }),
+        ],
       ),
       backgroundColor: Colors.pink[50],
       body: Column(
@@ -88,5 +97,10 @@ class dashBoardState extends State<dashBoard> {
   navigatetocompose() {
     Navigator.pushReplacement(
         context, MaterialPageRoute(builder: (context) => Compose()));
+  }
+  navigatetoprofile() {
+    Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (conext) => Profile())
+    );
   }
 }
