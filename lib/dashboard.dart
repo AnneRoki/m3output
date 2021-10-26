@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:m3output/profile.dart';
-import 'var.dart';
+import 'package:m3output/var.dart';
 import 'compose.dart';
 import 'profile.dart';
 
@@ -25,24 +25,30 @@ class dashBoard extends StatefulWidget {
 
 class dashBoardState extends State<dashBoard> {
   get floatingActionButton => null;
-  late GlobalKey<RefreshIndicatorState> refreshKey;
-  final List<String> lposts = <String>['testing'];
+  // late GlobalKey<RefreshIndicatorState> refreshKey;
+
   TextEditingController newpost = TextEditingController();
-  Future<Null> refreshpage() async {
-    await Future.delayed(Duration(seconds: 2));
-    addItemToList();
-    return null;
-  }
 
-  @override
-  void initState() {
-    super.initState();
-    refreshKey = GlobalKey<RefreshIndicatorState>();
-  }
+  // Future<Null> refreshpage() async {
+  //   await Future.delayed(Duration(seconds: 2));
 
-  void addItemToList() {
+  //   if (temp == " " || temp == "") {
+  //     return null;
+  //   } else {
+  //     addItemToList();
+  //     return null;
+  //   }
+  // }
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   refreshKey = GlobalKey<RefreshIndicatorState>();
+  // }
+
+  void deletepost(index) {
     setState(() {
-      lposts.insert(0, temp);
+      lposts.removeAt(index);
     });
   }
 
@@ -63,6 +69,11 @@ class dashBoardState extends State<dashBoard> {
           ),
           Padding(padding: EdgeInsets.only(right: 135.0)),
           IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                deletepost(0);
+              }),
+          IconButton(
               icon: Icon(Icons.account_circle_rounded),
               onPressed: () {
                 navigatetoprofile();
@@ -73,25 +84,19 @@ class dashBoardState extends State<dashBoard> {
       body: Column(
         children: [
           Expanded(
-            child: RefreshIndicator(
-              key: refreshKey,
-              onRefresh: () async {
-                await refreshpage();
-              },
-              child: ListView.builder(
-                  itemCount: lposts.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                        height: 200,
-                        margin: EdgeInsets.all(15),
-                        color: Colors.purple[300],
-                        child: Padding(
-                          padding: EdgeInsets.all(20),
-                          child: Text('${lposts[index]}',
-                              style: TextStyle(fontSize: 15)),
-                        ));
-                  }),
-            ),
+            child: ListView.builder(
+                itemCount: lposts.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                      height: 200,
+                      margin: EdgeInsets.all(15),
+                      color: Colors.purple[300],
+                      child: Padding(
+                        padding: EdgeInsets.all(20),
+                        child: Text('${lposts[index]}',
+                            style: TextStyle(fontSize: 15)),
+                      ));
+                }),
           ),
         ],
       ),

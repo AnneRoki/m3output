@@ -16,6 +16,12 @@ class _ComposeState extends State<Compose> {
         context, MaterialPageRoute(builder: (context) => dashBoard()));
   }
 
+  void addItemToList() {
+    setState(() {
+      lposts.insert(0, temp);
+    });
+  }
+
   final tvalue = dashBoardState();
   @override
   Widget build(BuildContext context) {
@@ -57,7 +63,8 @@ class _ComposeState extends State<Compose> {
                   onPressed: () {
                     if (tvalue.newpost.text != "") {
                       temp = tvalue.newpost.text;
-                      navigatetopushdash();
+                      addItemToList();
+                      navigatetopushdashwtime();
                       final snackBar = SnackBar(
                           content: const Text(
                         'Your Peko has been posted',
@@ -110,6 +117,12 @@ class _ComposeState extends State<Compose> {
                     ))),
           )
         ])));
+  }
+
+  navigatetopushdashwtime() async {
+    await Future.delayed(Duration(milliseconds: 1500), () {});
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => dashBoard()));
   }
 }
 
